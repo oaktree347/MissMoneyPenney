@@ -1,0 +1,1 @@
+# sithmail-tipbot
