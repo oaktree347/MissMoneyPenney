@@ -1,4 +1,4 @@
-#Legobot
+#Sithmail Tipbot
 =======
 ##Authors
 Bren Briggs and Kevin McCabe developed Legobot in late 2013. This is an application built on that work. 
