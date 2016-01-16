@@ -150,8 +150,10 @@ def main():
         else:
             CHANS.append((chan,''))
 
-
-    mybot = Legobot.legoBot(host=HOST,port=PORT,nick=NICK,chans=CHANS,hostpw=HOSTPW)
+    if HOSTPW:
+        mybot = Legobot.legoBot(host=HOST,port=PORT,nick=NICK,chans=CHANS,hostpw=HOSTPW)
+    else:
+        mybot = Legobot.legoBot(host=HOST,port=PORT,nick=NICK,chans=CHANS)
     mybot.addFunc("!helloworld", helloWorld, "Ask your bot to say hello. Usage: !helloworld")
     mybot.addFunc("!roll", cointoss, "Roll a magical N-sided die. Usage !roll [ N>1 sides ]")
     mybot.addFunc("!xkcd", xkcd, "Pulls a random XKCD comic. Usage: !xkcd")
