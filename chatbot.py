@@ -126,6 +126,7 @@ def main():
     HOST = config.get('Main','host')
     PORT = config.getint('Main','port')
     NICK = config.get('Main','nick')
+    HOSTPW = None
 
     try:
         HOSTPW = config.get('Main','hostpw')
