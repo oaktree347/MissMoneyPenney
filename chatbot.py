@@ -94,7 +94,7 @@ def check_weather_by_zip(msg):
     import re
     import requests
     import os
-    
+
     if not msg.arg1:
         return "Please provide a zip code for me to check"
     else:
@@ -110,7 +110,7 @@ def check_weather_by_zip(msg):
         return "No API keys found. Please initialize your api.cfg file."
 
     try:
-        api_keys.get('API','wunderground')
+        WUNDERGROUND_API_KEY = api_keys.get('API','wunderground')
     except Exception as e:
         return e
 
