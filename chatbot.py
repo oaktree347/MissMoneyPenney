@@ -4,8 +4,9 @@ import ConfigParser
 # bing_search() courtest of paraxor
 # TODO: fetch more results
 def bing_search(msg):
-    import random
-    query = msg.fullMessage
+    import random, urllib2, random, re
+    user_agent = 'Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 5.1; Trident/4.0; FDM; .NET CLR 2.0.50727; InfoPath.2; .NET CLR 1.1.4322)'
+    query = ' '.join(msg.splitMessage[4:])
     query = query.replace(' ', '%20')
     req_url = 'http://www.bing.com/images/search'
     req_url += '?q=' + query
@@ -15,7 +16,6 @@ def bing_search(msg):
     request_opener = urllib2.build_opener()
     response = request_opener.open(request)
     response_data = response.read()
-
     urls = []
     for url in re.finditer('"https?://[^"]*\.(jpg|jpeg|png|gif|gifv)"', response_data):
         urls += [url.group(0).strip('"')]
@@ -264,7 +264,7 @@ def main():
     else:
         mybot = Legobot.legoBot(host=HOST,port=PORT,nick=NICK,chans=CHANS)
     mybot.addFunc("!helloworld", helloWorld, "Ask your bot to say hello. Usage: !helloworld")
-    mybot.addFunc("!img", bing_search, "Search Bing for a random image based on your input. Safe search is on, but you have been warned. Usage: !img ")
+    mybot.addFunc("!img", bing_search, "Search Bing for a random image based on your input. Safe search is on, but you have been warned. Usage: !img [words to search]")
     mybot.addFunc("!roll", cointoss, "Roll a magical N-sided die. Usage !roll [ N>1 sides ]")
     mybot.addFunc("!xkcd", xkcd, "Pulls a random XKCD comic. Usage: !xkcd")
     mybot.addFunc("!tip", tip_user, "Tip a specific user. Usage !tip [user]")
