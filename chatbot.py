@@ -1,6 +1,31 @@
 import Legobot
 import ConfigParser
 
+# bing_search() courtest of paraxor
+# TODO: fetch more results
+def bing_search(msg):
+    import random
+    query = msg.fullMessage
+    query = query.replace(' ', '%20')
+    req_url = 'http://www.bing.com/images/search'
+    req_url += '?q=' + query
+    req_url += '&safesearch=on'
+    request = urllib2.Request(req_url)
+    request.add_header('User-Agent', user_agent)
+    request_opener = urllib2.build_opener()
+    response = request_opener.open(request)
+    response_data = response.read()
+
+    urls = []
+    for url in re.finditer('"https?://[^"]*\.(jpg|jpeg|png|gif|gifv)"', response_data):
+        urls += [url.group(0).strip('"')]
+
+    if len(urls) == 0:
+        url = 'Nothing found :('
+    else:
+        url = random.choice(urls)
+
+    return url
 
 def helloWorld(msg):
     return "Hello, world!"
@@ -40,7 +65,7 @@ def tip_user(msg):
     if nick_to_tip is None or amt_to_tip is None:
         #must have 2 args
         return "wat?"
-        
+
     else:
         #proper number of args
         if nick_to_tip in tipped:
@@ -67,14 +92,14 @@ def print_tips(msg):
         tips_file.read('tips.cfg')
     else:
         return "No tips found. Please initialize a tips.cfg file."
-    
+
     if msg.arg1:
         try:
             tipval = tips_file.get('Tips',msg.arg1)
             returnval = "%s has %s meaningless internet points." % (msg.arg1, tipval)
         except:
             returnval = "I don't think %s has been tipped yet. Poor, pointless soul." % msg.arg1
-    else:    
+    else:
         try:
             tipped = []
             for (key,value) in tips_file.items('Tips'):
@@ -239,6 +264,7 @@ def main():
     else:
         mybot = Legobot.legoBot(host=HOST,port=PORT,nick=NICK,chans=CHANS)
     mybot.addFunc("!helloworld", helloWorld, "Ask your bot to say hello. Usage: !helloworld")
+    mybot.addFunc("!img", bing_search, "Search Bing for a random image based on your input. Safe search is on, but you have been warned. Usage: !img ")
     mybot.addFunc("!roll", cointoss, "Roll a magical N-sided die. Usage !roll [ N>1 sides ]")
     mybot.addFunc("!xkcd", xkcd, "Pulls a random XKCD comic. Usage: !xkcd")
     mybot.addFunc("!tip", tip_user, "Tip a specific user. Usage !tip [user]")
