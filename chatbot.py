@@ -179,7 +179,7 @@ def check_weather_by_zip(msg):
         )
     return reply
 
-def cointoss(msg):
+def roll(msg):
     import random
     """
     Inputs:
@@ -193,8 +193,16 @@ def cointoss(msg):
       Usage:
       !roll [# of sides]
     """
+    num_dice = 1
+
+    if msg.arg2:
+        if not is_num(msg.arg2):
+            return "Incorrect number of dice. You must use a (sane) number."
+        else:
+            num_dice = int(msg.arg2)
 
     if not msg.arg1:
+        # Behave like a coin
         toss = random.randint(0,1)
         if toss == 0:
             returnVal = "Heads"
@@ -212,8 +220,10 @@ def cointoss(msg):
             else:
                 returnVal = "Tails"
         else:
-            toss = random.randint(1,int(msg.arg1))
-            returnVal = str(toss)
+            results = []
+            for i in range(num_dice):
+                results.append(str(random.randint(1,int(msg.arg1))))
+                returnVal = "Your roll: %s" % " ".join(results)
     return returnVal
 
 def xkcd(msg):
@@ -265,7 +275,7 @@ def main():
         mybot = Legobot.legoBot(host=HOST,port=PORT,nick=NICK,chans=CHANS)
     mybot.addFunc("!helloworld", helloWorld, "Ask your bot to say hello. Usage: !helloworld")
     mybot.addFunc("!img", bing_search, "Search Bing for a random image based on your input. Safe search is on, but you have been warned. Usage: !img [words to search]")
-    mybot.addFunc("!roll", cointoss, "Roll a magical N-sided die. Usage !roll [ N>1 sides ]")
+    mybot.addFunc("!roll", roll, "Roll a magical N-sided die. Usage !roll [ N>1 sides ]")
     mybot.addFunc("!xkcd", xkcd, "Pulls a random XKCD comic. Usage: !xkcd")
     mybot.addFunc("!tip", tip_user, "Tip a specific user. Usage !tip [user]")
     mybot.addFunc("!weather", check_weather_by_zip, "Check weather by zipcode. Usage: !weather 36429")
