@@ -54,7 +54,7 @@ def tip_user(msg):
     if os.path.isfile('tips.cfg'):
         tips_file.read('tips.cfg')
     else:
-        return "No tips found. Please initialize a tips.cfg file."
+        tips_file.add_section('Tips')
 
     try:
         for (key,value) in tips_file.items('Tips'):
@@ -91,7 +91,7 @@ def print_tips(msg):
     if os.path.isfile('tips.cfg'):
         tips_file.read('tips.cfg')
     else:
-        return "No tips found. Please initialize a tips.cfg file."
+        return "It appears nobody has been tipped yet."
 
     if msg.arg1:
         try:
@@ -275,7 +275,7 @@ def main():
         mybot = Legobot.legoBot(host=HOST,port=PORT,nick=NICK,chans=CHANS)
     mybot.addFunc("!helloworld", helloWorld, "Ask your bot to say hello. Usage: !helloworld")
     mybot.addFunc("!img", bing_search, "Search Bing for a random image based on your input. Safe search is on, but you have been warned. Usage: !img [words to search]")
-    mybot.addFunc("!roll", roll, "Roll a magical N-sided die. Usage !roll [ N>1 sides ]")
+    mybot.addFunc("!roll", roll, "Roll a magical N-sided die. Usage !roll [ N>1 sides ] [number of die to roll]")
     mybot.addFunc("!xkcd", xkcd, "Pulls a random XKCD comic. Usage: !xkcd")
     mybot.addFunc("!tip", tip_user, "Tip a specific user. Usage !tip [user]")
     mybot.addFunc("!weather", check_weather_by_zip, "Check weather by zipcode. Usage: !weather 36429")
