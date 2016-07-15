@@ -54,7 +54,7 @@ def tip_user(msg):
     if os.path.isfile('tips.cfg'):
         tips_file.read('tips.cfg')
     else:
-        return "No tips found. Please initialize a tips.cfg file."
+        tips_file.add_section('Tips')
 
     try:
         for (key,value) in tips_file.items('Tips'):
@@ -91,7 +91,7 @@ def print_tips(msg):
     if os.path.isfile('tips.cfg'):
         tips_file.read('tips.cfg')
     else:
-        return "No tips found. Please initialize a tips.cfg file."
+        return "It appears nobody has been tipped yet."
 
     if msg.arg1:
         try:
