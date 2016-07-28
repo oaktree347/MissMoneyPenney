@@ -45,7 +45,7 @@ def is_num(val):
 def wiki_search(msg):
     import requests
     baseurl = 'https://en.wikipedia.org/w/index.php?search='
-    search_params = '%20'.join(msg.splitMessage[4:])
+    search_params = '%20'.join(msg.splitMessage[1:])
     r = requests.get(baseurl+search_params)
     if r.status_code == 200:
         return "I found this: " + r.url
