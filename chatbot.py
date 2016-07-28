@@ -42,6 +42,16 @@ def is_num(val):
     except:
         return False
 
+def wiki_search(msg):
+    import requests
+    baseurl = 'https://en.wikipedia.org/w/index.php?search='
+    search_params = '%20'.join(msg.splitMessage[4:])
+    r = requests.get(baseurl+search_params)
+    if r.status_code == 200:
+        return "I found this: " + r.url
+    else:
+        return "I could not reach Wikipedia. Sorry."
+
 def tip_user(msg):
     #Initialize empty list of tipped users
     import os
@@ -257,7 +267,7 @@ def main():
         chan_pass = None
         val = val.strip()
         val = val.split(' ')
-        
+
         if len(val) == 1:
             chan = val[0]
         if len(val) == 2:
@@ -280,6 +290,7 @@ def main():
     mybot.addFunc("!tip", tip_user, "Tip a specific user. Usage !tip [user]")
     mybot.addFunc("!weather", check_weather_by_zip, "Check weather by zipcode. Usage: !weather 36429")
     mybot.addFunc('!printtips', print_tips, "See who has been tipped")
+    mybot.addFunc('!wtf', wiki_search, "Wikipedia Top Finder. Grab a wikipedia article using a word or phrase as your search parameter. Usage: !wtf [parameter]")
     mybot.connect(isSSL=True)
 
 
