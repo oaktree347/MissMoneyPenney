@@ -45,7 +45,6 @@ def is_num(val):
 def wiki_search(msg):
     import requests
     baseurl = 'https://en.wikipedia.org/w/index.php?search='
-    # Only supports a single word search. TODO: Expand to arbitrary length
     search_params = '%20'.join(msg.splitMessage[4:])
     r = requests.get(baseurl+search_params)
     if r.status_code == 200:
@@ -291,7 +290,7 @@ def main():
     mybot.addFunc("!tip", tip_user, "Tip a specific user. Usage !tip [user]")
     mybot.addFunc("!weather", check_weather_by_zip, "Check weather by zipcode. Usage: !weather 36429")
     mybot.addFunc('!printtips', print_tips, "See who has been tipped")
-    mybot.addFunc('!wtf', wiki_search, "Wikipedia Top Finder. Grab a wikipedia article using a single word as your search parameter. Usage: !wtf [parameter]")
+    mybot.addFunc('!wtf', wiki_search, "Wikipedia Top Finder. Grab a wikipedia article using a word or phrase as your search parameter. Usage: !wtf [parameter]")
     mybot.connect(isSSL=True)
 
 
