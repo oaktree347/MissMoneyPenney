@@ -247,6 +247,11 @@ def xkcd(msg):
         returnVal = "%s %s" %(altText,"http:" + comic.group(1))
         return returnVal
 
+
+def fraqdef(msg):
+    return 'hey fraq what is a ' + ' '.join(msg.splitMessage[4:])
+
+
 def main():
     config = ConfigParser.SafeConfigParser()
 
@@ -291,6 +296,7 @@ def main():
     mybot.addFunc("!weather", check_weather_by_zip, "Check weather by zipcode. Usage: !weather 36429")
     mybot.addFunc('!printtips', print_tips, "See who has been tipped")
     mybot.addFunc('!wtf', wiki_search, "Wikipedia Top Finder. Grab a wikipedia article using a word or phrase as your search parameter. Usage: !wtf [parameter]")
+    mybot.addFunc('!fraqdef', fraqdef, "Fraqture Search. Ask fraq what something is. Usage !fraqdef [parameter]")
     mybot.connect(isSSL=True)
 
 
