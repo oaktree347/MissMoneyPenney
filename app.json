@@ -1,0 +1,15 @@
+{
+  "name": "sithmail-tipbot",
+  "scripts": {
+  },
+  "env": {
+  },
+  "formation": {
+  },
+  "addons": [
+
+  ],
+  "buildpacks": [
+
+  ]
+}
