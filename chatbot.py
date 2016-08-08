@@ -284,10 +284,12 @@ def main():
         else:
             CHANS.append((chan,''))
 
-    if HOSTPW:
-        mybot = Legobot.legoBot(host=HOST,port=PORT,nick=NICK,chans=CHANS,hostpw=HOSTPW)
-    else:
-        mybot = Legobot.legoBot(host=HOST,port=PORT,nick=NICK,chans=CHANS)
+        if HOSTPW:
+            mybot = Legobot.legoBot(host=HOST,port=PORT,nick=NICK,nickpass="",chans=CHANS,hostpw=HOSTPW)
+        else:
+            mybot = Legobot.legoBot(host=HOST,port=PORT,nick=NICK,nickpass="",chans=CHANS)
+
+
     mybot.addFunc("!helloworld", helloWorld, "Ask your bot to say hello. Usage: !helloworld")
     mybot.addFunc("!img", bing_search, "Search Bing for a random image based on your input. Safe search is on, but you have been warned. Usage: !img [words to search]")
     mybot.addFunc("!roll", roll, "Roll a magical N-sided die. Usage !roll [ N>1 sides ] [number of die to roll]")
