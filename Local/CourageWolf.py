@@ -1,6 +1,5 @@
 import logging
 import random
-import pkg_resources
 from Legobot.Lego import Lego
 
 logger = logging.getLogger(__name__)
