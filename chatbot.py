@@ -7,6 +7,7 @@ from Local.CourageWolf import Encourage
 from Local.BingImageSearch import BingImageSearch
 from Local.WikipediaTopFinder import WikipediaTopFinder
 from Local.XKCD import XKCD
+from Local.CodingLove import CodingLove
 
 from Legobot.Connectors.IRC import IRC
 from Legobot.Legos.Help import Help
@@ -44,3 +45,4 @@ baseplate_proxy.add_child(Encourage,encouragement='encouragement.txt')
 baseplate_proxy.add_child(BingImageSearch)
 baseplate_proxy.add_child(WikipediaTopFinder)
 baseplate_proxy.add_child(XKCD)
+baseplate_proxy.add_child(CodingLove)
