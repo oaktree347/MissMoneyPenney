@@ -32,13 +32,14 @@ baseplate_proxy = baseplate.proxy()
 
 # Add children
 baseplate_proxy.add_child(IRC,
-                          channels=['#social'],
-                          nickname=config['sithmail']['username'],
-                          server=config['sithmail']['host'],
-                          port=int(config['sithmail']['port']),
-                          use_ssl=config.getboolean('sithmail','ssl'),
-                          username=config['sithmail']['username'],
-                          password=config['sithmail']['password'])
+                          channels=[channel.strip() for channel in config.get(
+                              "irc1", "channel").split(",")],
+                          nickname=config['irc1']['username'],
+                          server=config['irc1']['host'],
+                          port=int(config['irc1']['port']),
+                          use_ssl=config.getboolean('irc1','ssl'),
+                          username=config['irc1']['username'],
+                          password=config['irc1']['password'])
 baseplate_proxy.add_child(Help)
 baseplate_proxy.add_child(Roll)
 baseplate_proxy.add_child(Encourage,encouragement='encouragement.txt')
