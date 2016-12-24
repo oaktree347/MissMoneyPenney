@@ -8,6 +8,7 @@ from Local.BingImageSearch import BingImageSearch
 from Local.WikipediaTopFinder import WikipediaTopFinder
 from Local.XKCD import XKCD
 from Local.CodingLove import CodingLove
+from Local.Stocks import Stocks
 
 from Legobot.Connectors.IRC import IRC
 from Legobot.Legos.Help import Help
@@ -32,7 +33,7 @@ baseplate_proxy = baseplate.proxy()
 
 # Add children
 baseplate_proxy.add_child(IRC,
-                          channels=['#social'],
+                          channels=['#test'],
                           nickname=config['sithmail']['username'],
                           server=config['sithmail']['host'],
                           port=int(config['sithmail']['port']),
@@ -46,3 +47,4 @@ baseplate_proxy.add_child(BingImageSearch)
 baseplate_proxy.add_child(WikipediaTopFinder)
 baseplate_proxy.add_child(XKCD)
 baseplate_proxy.add_child(CodingLove)
+baseplate_proxy.add_child(Stocks)
