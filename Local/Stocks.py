@@ -27,7 +27,7 @@ class Stocks(Lego):
         return 'stocks'
 
     def get_help(self):
-        help_text = "Lookup a stock symbol's value. Usage: !stocks <symbol>"
+        return "Lookup a stock symbol's value. Usage: !stocks <symbol>"
 
     def lookup_symbol(self,symbol):
         base_url = 'https://www.google.com/finance/info?q='
