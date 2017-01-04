@@ -1,3 +1,8 @@
-legobot==1.0.0
-dice
-requests
+legobot==1.0.2
+legos.wtf
+legos.dice
+legos.codinglove
+legos.couragewolf
+legos.devopsy
+legos.stocks
+legos.xkcd
