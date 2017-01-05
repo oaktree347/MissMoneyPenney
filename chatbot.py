@@ -3,7 +3,7 @@ import threading
 import configparser
 from Legobot.Lego import Lego
 from legos.dice import Roll
-from legos.couragewolf Encourage
+from legos.couragewolf import Encourage
 from Local.BingImageSearch import BingImageSearch
 from legos.wtf import WikipediaTopFinder
 from legos.xkcd import XKCD
