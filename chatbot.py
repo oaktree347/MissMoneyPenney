@@ -35,7 +35,7 @@ baseplate_proxy = baseplate.proxy()
 # Add children
 baseplate_proxy.add_child(IRC,
                           channels=[channel.strip() for channel in config.get(
-                              "irc1", "channel").split(",")],
+                              "irc1", "channels").split(",")],
                           nickname=config['irc1']['username'],
                           server=config['irc1']['host'],
                           port=int(config['irc1']['port']),
