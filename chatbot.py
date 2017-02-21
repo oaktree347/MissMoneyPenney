@@ -3,7 +3,6 @@ import threading
 import configparser
 from Legobot.Lego import Lego
 from legos.dice import Roll
-from legos.couragewolf import Encourage
 from Local.BingImageSearch import BingImageSearch
 from legos.wtf import WikipediaTopFinder
 from legos.xkcd import XKCD
@@ -44,7 +43,6 @@ baseplate_proxy.add_child(IRC,
                           password=config['irc1']['password'])
 baseplate_proxy.add_child(Help)
 baseplate_proxy.add_child(Roll)
-baseplate_proxy.add_child(Encourage,encouragement='encouragement.txt')
 baseplate_proxy.add_child(BingImageSearch)
 baseplate_proxy.add_child(WikipediaTopFinder)
 baseplate_proxy.add_child(XKCD)
