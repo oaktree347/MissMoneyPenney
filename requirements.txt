@@ -1,8 +1,2 @@
 legobot
-legos.wtf
 legos.dice
-legos.codinglove
-legos.couragewolf
-legos.devopsy
-legos.stocks
-legos.xkcd
