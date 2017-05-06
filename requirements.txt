@@ -1,4 +1,4 @@
-legobot==1.0.2
+legobot
 legos.wtf
 legos.dice
 legos.codinglove
