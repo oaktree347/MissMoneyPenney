@@ -3,6 +3,7 @@ import threading
 import configparser
 from Legobot.Lego import Lego
 from legos.dice import Roll
+from legos.wtf import WikipediaTopFinder as wtf
 
 from Legobot.Connectors.IRC import IRC
 from Legobot.Legos.Help import Help
@@ -11,9 +12,9 @@ config = configparser.ConfigParser()
 config.read('config.ini')
 
 logger = logging.getLogger()
-logger.setLevel(logging.DEBUG)
+logger.setLevel(logging.INFO)
 ch = logging.StreamHandler()
-ch.setLevel(logging.DEBUG)
+ch.setLevel(logging.INFO)
 # create formatter and add it to the handlers
 formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
 ch.setFormatter(formatter)
@@ -37,3 +38,4 @@ baseplate_proxy.add_child(IRC,
                           password=config['irc1']['password'])
 baseplate_proxy.add_child(Help)
 baseplate_proxy.add_child(Roll)
+baseplate_proxy.add_child(wtf)
