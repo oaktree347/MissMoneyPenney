@@ -4,9 +4,10 @@ import configparser
 from Legobot.Lego import Lego
 from legos.dice import Roll
 from legos.wtf import WikipediaTopFinder as wtf
-
 from Legobot.Connectors.IRC import IRC
 from Legobot.Legos.Help import Help
+
+from local.factoids import Factoids
 
 config = configparser.ConfigParser()
 config.read('config.ini')
@@ -39,3 +40,5 @@ baseplate_proxy.add_child(IRC,
 baseplate_proxy.add_child(Help)
 baseplate_proxy.add_child(Roll)
 baseplate_proxy.add_child(wtf)
+baseplate_proxy.add_child(Factoids)
+
