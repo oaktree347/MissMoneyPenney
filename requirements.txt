@@ -1,2 +1,3 @@
 legobot
 legos.dice
+legos.wtf
