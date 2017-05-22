@@ -16,7 +16,7 @@ class Factoids(Lego):
         Returns:
             Bool: Returns true if the first word in the message is a command for this class
         """
-        cmds = ['!ugt']
+        cmds = ['!ugt', '!info']
         return message['text'].split()[0] in cmds
 
     def handle(self, message):
@@ -37,7 +37,11 @@ class Factoids(Lego):
         command = message['text'].split()[0]
         if command == '!ugt':
             txt = 'Universal Greeting Time. http://www.total-knowledge.com/~ilya/mips/ugt.html'
-            self.reply(message, txt, opts)
+        elif command == '!info':
+            txt = "You are on the 0x00sec IRC network in channel {} |  Forums: https://0x00sec.org/ " \
+                  "| IRC: irc.0x00sec.org 6697+ | Git server: https://git.0x00sec.org " \
+                  "| Source for this bot: https://github.com/bbriggs/MissMoneyPenney".format(message['metadata']['source_channel'])
+        self.reply(message, txt, opts)
 
 
     def get_name(self):
