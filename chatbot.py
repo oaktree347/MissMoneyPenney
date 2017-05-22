@@ -13,9 +13,9 @@ config = configparser.ConfigParser()
 config.read('config.ini')
 
 logger = logging.getLogger()
-logger.setLevel(logging.DEBUG)
+logger.setLevel(logging.INFO)
 ch = logging.StreamHandler()
-ch.setLevel(logging.DEBUG)
+ch.setLevel(logging.INFO)
 # create formatter and add it to the handlers
 formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
 ch.setFormatter(formatter)
@@ -41,3 +41,4 @@ baseplate_proxy.add_child(Help)
 baseplate_proxy.add_child(Roll)
 baseplate_proxy.add_child(wtf)
 baseplate_proxy.add_child(Factoids)
+
