@@ -58,7 +58,7 @@ class Kudos(Lego):
         return opts
 
     def get_name(self):
-        return 'tip'
+        return 'kudos'
 
     def get_help(self):
-        return 'Tip some imaginary internet points'
+        return 'Give useless, imaginary internet points. Example: foo++ or foo--'
