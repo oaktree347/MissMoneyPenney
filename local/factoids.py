@@ -1,4 +1,5 @@
 import logging
+import json
 from Legobot.Lego import Lego
 
 logger = logging.getLogger(__name__)
