@@ -4,7 +4,7 @@ import logging
 logger = logging.getLogger(__name__)
 
 
-class Tip(Lego):
+class Kudos(Lego):
     def __init__(self, baseplate, lock, redis, *args, **kwargs):
         super().__init__(baseplate, lock)
         self.r = redis  # initialized redis connection
