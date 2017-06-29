@@ -16,7 +16,7 @@ class Factoids(Lego):
         Returns:
             Bool: Returns true if the first word in the message is a command for this class
         """
-        cmds = ['!ugt', '!info']
+        cmds = ['!ugt', '!info', '!users']
         return message['text'].split()[0] in cmds
 
     def handle(self, message):
