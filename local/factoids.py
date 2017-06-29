@@ -41,6 +41,10 @@ class Factoids(Lego):
             txt = "You are on the 0x00sec IRC network in channel {} |  Forums: https://0x00sec.org/ " \
                   "| IRC: irc.0x00sec.org 6697+ | Git server: https://git.0x00sec.org " \
                   "| Source for this bot: https://github.com/bbriggs/MissMoneyPenney".format(message['metadata']['source_channel'])
+        elif command == "!users":
+            users = json.loads(requests.get("https://0x00sec.org/about.json").text)
+            count = users['about']['stats']['user_count']
+            txt = "There are currently {} registered users on 0x00sec.".format(count)
         self.reply(message, txt, opts)
 
 
@@ -64,6 +68,5 @@ class Factoids(Lego):
             String: A help message that explains this class
         """
         help_text = "collection of nice factoids (static reponses). " \
-                "Usage: !shrug, !tableflip, !nope, !doit, !wat, !@, !source, !deal, !awesome, " \
-                "!nuke, !stats, !docs, !http, !no, !dog, !cat, !aww, !awww, !please, !slowclap, !dance, !eyeballs"
+                "!ugt, !info, !users"
         return help_text
