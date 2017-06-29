@@ -8,7 +8,7 @@ from legos.wtf import WikipediaTopFinder as wtf
 from Legobot.Connectors.IRC import IRC
 from Legobot.Legos.Help import Help
 
-from local.tip import Tip
+from local.kudos import Kudos
 from local.factoids import Factoids
 
 config = configparser.ConfigParser()
@@ -45,5 +45,5 @@ baseplate_proxy.add_child(Help)
 baseplate_proxy.add_child(Roll)
 baseplate_proxy.add_child(wtf)
 baseplate_proxy.add_child(Factoids)
-baseplate_proxy.add_child(Tip, r)
+baseplate_proxy.add_child(Kudos, r)
 
