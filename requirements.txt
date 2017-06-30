@@ -4,3 +4,4 @@ pyflakes==1.3.0
 bandit==1.3.0
 legos.dice==0.1.2
 legos.wtf==0.1.3
+legos.ctftime

@@ -5,6 +5,7 @@ import redis
 from Legobot.Lego import Lego
 from legos.dice import Roll
 from legos.wtf import WikipediaTopFinder as wtf
+from legos.ctftime import CTFtime
 from Legobot.Connectors.IRC import IRC
 from Legobot.Legos.Help import Help
 
@@ -46,4 +47,4 @@ baseplate_proxy.add_child(Roll)
 baseplate_proxy.add_child(wtf)
 baseplate_proxy.add_child(Factoids)
 baseplate_proxy.add_child(Kudos, r)
-
+baseplate_proxy.add_child(CTFtime)
