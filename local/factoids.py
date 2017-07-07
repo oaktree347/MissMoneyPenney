@@ -50,11 +50,16 @@ class Factoids(Lego):
             count = users['about']['stats']['user_count']
             txt = "There are currently {} registered users on 0x00sec.".format(count)
         elif command == "!gray":
-            responses = ['I felt so symbolic yesterday',
-                         'If I knew Picasso, I would buy myself a gray guitar and play',
-                         'Pass me a bottle, Mr. Jones',
-                         'Yeah, well you know, gray is my favorite color',
-                         'https://www.youtube.com/watch?v=-oqAU5VxFWs']
+            responses = ["Well I'm a paint my picture, Paint myself in blue, red, black and gray",
+                         "All of the beautiful colors are very, very meaningful",
+                         "Yeah, well you know, gray is my favorite color",
+                         "I felt so symbolic yesterday",
+                         "If I knew Picasso, I would buy myself a gray guitar and play",
+                         "Sha la, la, la, la, la, la, la",
+                         "Cut up, Maria. Show me some of them Spanish dances", 
+                         "Pass me a bottle, Mr. Jones",
+                         "Mr. Jones and me tell each other fairy tales",
+                         "https://www.youtube.com/watch?v=-oqAU5VxFWs"]
             txt = random.choice(responses)
         self.reply(message, txt, opts)
 
