@@ -1,6 +1,7 @@
 import logging
 import json
 import requests
+import random
 from Legobot.Lego import Lego
 
 logger = logging.getLogger(__name__)
@@ -18,7 +19,7 @@ class Factoids(Lego):
         Returns:
             Bool: Returns true if the first word in the message is a command for this class
         """
-        cmds = ['!ugt', '!info', '!users']
+        cmds = ['!ugt', '!info', '!users', '!gray']
         return message['text'].split()[0] in cmds
 
     def handle(self, message):
@@ -28,7 +29,8 @@ class Factoids(Lego):
             message: The complete line/message that comes from an IRC channel
 
         Returns:
-            string: Returns the suitable factoid"""
+            string: Returns the suitable factoid
+        """
         opts = None
         logger.info(message)
         try:
@@ -47,8 +49,14 @@ class Factoids(Lego):
             users = json.loads(requests.get("https://0x00sec.org/about.json").text)
             count = users['about']['stats']['user_count']
             txt = "There are currently {} registered users on 0x00sec.".format(count)
+        elif command == "!gray":
+            responses = ['I felt so symbolic yesterday',
+                         'If I knew Picasso, I would buy myself a gray guitar and play',
+                         'Pass me a bottle, Mr. Jones',
+                         'Yeah, well you know, gray is my favorite color',
+                         'https://www.youtube.com/watch?v=-oqAU5VxFWs']
+            txt = random.choice(responses)
         self.reply(message, txt, opts)
-
 
     def get_name(self):
         """Returns the name of this class
