@@ -19,7 +19,7 @@ class Factoids(Lego):
         Returns:
             Bool: Returns true if the first word in the message is a command for this class
         """
-        cmds = ['!ugt', '!info', '!users', '!gray']
+        cmds = ['!ugt', '!info', '!users', '!gray', 'zapp']
         return message['text'].split()[0] in cmds
 
     def handle(self, message):
@@ -60,6 +60,17 @@ class Factoids(Lego):
                          "Pass me a bottle, Mr. Jones",
                          "Mr. Jones and me tell each other fairy tales",
                          "https://www.youtube.com/watch?v=-oqAU5VxFWs"]
+            txt = random.choice(responses)
+        elif command == "zapp":
+            responses = ["Brannigan's law is like Brannigan's love: hard and fast.",
+                         "If we can hit that bullseye the rest of the dominoes will fall like a house of cards: checkmate!",
+                         "I am the man with no name. Zapp Brannigan at your service.",
+                         "Now remember, Kif, the quickest way to a girl's bed is through her parents. Have sex with them and you're in.",
+                         "I surrender and volunteer for treason.",
+                         "She's built like a steakhouse but she handles like a bistro.",
+                         "When I'm in command, every mission is a suicide-mission.",
+                         "In the game of chess, never let your adversary see your pieces.",
+                         "Champ-paggin'"]
             txt = random.choice(responses)
         self.reply(message, txt, opts)
 
