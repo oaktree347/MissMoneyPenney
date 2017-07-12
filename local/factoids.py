@@ -49,29 +49,6 @@ class Factoids(Lego):
             users = json.loads(requests.get("https://0x00sec.org/about.json").text)
             count = users['about']['stats']['user_count']
             txt = "There are currently {} registered users on 0x00sec.".format(count)
-        elif command == "!gray":
-            responses = ["Well I'm a paint my picture, Paint myself in blue, red, black and gray",
-                         "All of the beautiful colors are very, very meaningful",
-                         "Yeah, well you know, gray is my favorite color",
-                         "I felt so symbolic yesterday",
-                         "If I knew Picasso, I would buy myself a gray guitar and play",
-                         "Sha la, la, la, la, la, la, la",
-                         "Cut up, Maria. Show me some of them Spanish dances", 
-                         "Pass me a bottle, Mr. Jones",
-                         "Mr. Jones and me tell each other fairy tales",
-                         "https://www.youtube.com/watch?v=-oqAU5VxFWs"]
-            txt = random.choice(responses)
-        elif command == "zapp":
-            responses = ["Brannigan's law is like Brannigan's love: hard and fast.",
-                         "If we can hit that bullseye the rest of the dominoes will fall like a house of cards: checkmate!",
-                         "I am the man with no name. Zapp Brannigan at your service.",
-                         "Now remember, Kif, the quickest way to a girl's bed is through her parents. Have sex with them and you're in.",
-                         "I surrender and volunteer for treason.",
-                         "She's built like a steakhouse but she handles like a bistro.",
-                         "When I'm in command, every mission is a suicide-mission.",
-                         "In the game of chess, never let your adversary see your pieces.",
-                         "Champ-paggin'"]
-            txt = random.choice(responses)
         self.reply(message, txt, opts)
 
     def get_name(self):

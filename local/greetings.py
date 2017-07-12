@@ -66,9 +66,10 @@ class Greetings(Lego):
         elif command == 'moin':
             txt = 'moin {}'.format(message['metadata']['source_username'])
         elif command in ['ay', 'yo', 'sup', 'hi', 'wassup']:
-            responses = ['suh dude', 'yo', 'hey {}'.format['metadata']['source_username'],
-                         'howzit', 'sup', 'sup {}'.format['metadata']['source_username'],
+            responses = ['suh dude', 'yo', 'hey {}'.format(message['metadata']['source_username']), 
+                         'howzit', 'sup', 'sup {}'.format(message['metadata']['source_username']),
                          'ayyyyy', 'welcome!']
+            txt = random.choice(responses)
         elif command in ['bye', 'cya']:
             responses = ['o/', 'later']
             txt = random.choice(responses)
