@@ -19,9 +19,9 @@ class Greetings(Lego):
         Returns:
             Bool: Returns true if the first word in the message is a command for this class
         """
-        cmds = ['!gray', 'zapp', 'ay', 'yo', 'sup', 'suh', 'hi', 'wassup', 'yarg', 'moin',
+        cmds = ['zapp', 'ay', 'yo', 'sup', 'suh', 'hi', 'wassup', 'yarg', 'moin',
                 'bye', 'cya']
-        return message['text'].strip().lower() in cmds
+        return message['text'].strip().lower() in cmds || message['text'].strip() == '!gray'
 
     def handle(self, message):
         """Execute the needed command
