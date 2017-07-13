@@ -7,7 +7,7 @@ from Legobot.Lego import Lego
 logger = logging.getLogger(__name__)
 
 class Greetings(Lego):
-    """Class to hold all factoids
+    """Class for Greetings
     Args: Lego
     """
     def listening_for(self, message):
@@ -21,7 +21,7 @@ class Greetings(Lego):
         """
         cmds = ['!gray', 'zapp', 'ay', 'yo', 'sup', 'suh', 'hi', 'wassup', 'yarg', 'moin',
                 'bye', 'cya']
-        return message['text'].split()[0] in cmds
+        return message['text'].strip().lower() in cmds
 
     def handle(self, message):
         """Execute the needed command
