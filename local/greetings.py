@@ -21,7 +21,7 @@ class Greetings(Lego):
         """
         cmds = ['zapp', 'ay', 'yo', 'sup', 'suh', 'hi', 'wassup', 'yarg', 'moin',
                 'bye', 'cya']
-        return message['text'].strip().lower() in cmds || message['text'].strip() == '!gray'
+        return message['text'].strip().lower() in cmds or message['text'].strip() == '!gray'
 
     def handle(self, message):
         """Execute the needed command
